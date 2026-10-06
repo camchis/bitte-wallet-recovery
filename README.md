@@ -1,6 +1,6 @@
 # Bitte/Mintbase Wallet Recovery
 
-Recover the signing key for a historical **Bitte** or **Mintbase** NEAR passkey wallet using the passkey you already have. You do not need the old wallet website or its former backend.
+Recover the private key for a historical **Bitte** or **Mintbase** NEAR passkey wallet using the passkey you already have. You do not need the old wallet website or its former backend which have both been shutdown suddenly, without any migration process.
 
 **Use at your own risk.** This app is not affiliated with Bitte, Mintbase, NEAR, or any password manager. Password-based wallets and Windows/Safari launchers are not supported. There is no independent security audit. See [security and privacy](SECURITY.md) and [historical implementation evidence](docs/IMPLEMENTATION.md).
 
