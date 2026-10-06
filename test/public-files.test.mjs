@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, writeFile, symlink } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { validatePublicFiles } from '../scripts/public-files.mjs';
+test('publication guard rejects unknown files, secrets, private paths and symlinks', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'bitte-public-synthetic-'));
+  const file = join(root, 'example.txt');
+  await writeFile(file, 'Public documentation.');
+  await validatePublicFiles(root, ['example.txt'], ['example.txt']);
+  await assert.rejects(validatePublicFiles(root, ['example.txt'], []), /Unapproved/);
+  const marker = ['-----BEGIN ', 'PRIVATE KEY-----'].join('');
+  await writeFile(file, marker);
+  await assert.rejects(validatePublicFiles(root, ['example.txt'], ['example.txt']), /Potential private/);
+  await writeFile(file, 'Public documentation.');
+  await assert.rejects(validatePublicFiles(root, ['target.json'], ['target.json']), /Private/);
+  await symlink(file, join(root, 'linked.txt'));
+  await assert.rejects(validatePublicFiles(root, ['linked.txt'], ['linked.txt']), /ordinary/);
+});

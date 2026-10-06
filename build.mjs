@@ -1,0 +1,14 @@
+import { build } from 'esbuild';
+import { mkdir, readFile, writeFile, copyFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+process.chdir(fileURLToPath(new URL('.', import.meta.url)));
+await mkdir('dist', { recursive: true });
+const result = await build({ entryPoints: ['src/app.js'], outfile: 'dist/app.js', bundle: true, platform: 'browser', target: 'chrome120', format: 'esm', metafile: true, sourcemap: false, minify: false });
+await build({ entryPoints: ['src/setup.js'], outfile: 'dist/setup.js', bundle: true, platform: 'browser', target: 'chrome120', format: 'esm', minify: false });
+for (const file of ['index.html', 'setup.html', 'style.css']) await copyFile('public/' + file, 'dist/' + file);
+await writeFile('dist/build-inputs.json', JSON.stringify(result.metafile, null, 2));
+const files = {};
+for (const name of ['index.html', 'setup.html', 'style.css', 'app.js', 'setup.js']) files[name] = createHash('sha256').update(await readFile('dist/' + name)).digest('hex');
+await writeFile('dist/SHA256.json', JSON.stringify(files, null, 2) + '\n');
+console.log('Built account setup and offline recovery pages. Output hashes: dist/SHA256.json');

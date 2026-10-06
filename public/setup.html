@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Bitte · Choose wallet</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/style.css"><script src="/provider.js"></script><script type="module" src="/setup.js"></script></head>
+<body><main>
+<p class="eyebrow">LOCAL RECOVERY · STEP 1 OF 2</p>
+<h1>Choose your NEAR wallet.</h1>
+<p class="intro">Enter the account you want to recover. We’ll download its public access keys before you use your existing passkey.</p>
+<section aria-label="Passkey provider setup"><p class="label">PASSKEY PROVIDER</p><h2 id="provider-name"></h2><p id="provider-instructions"></p><a id="provider-help" target="_blank" rel="noopener noreferrer">Official provider instructions</a><p class="muted">Enter provider passwords and PINs only in that provider’s own browser or extension prompt. This page never asks for them. Finish provider setup before continuing; use only your trusted provider’s extension in this dedicated profile.</p></section>
+<form id="lookup-form">
+<label for="account-input" class="label">NEAR MAINNET ACCOUNT ID</label>
+<input id="account-input" class="account-input" type="text" placeholder="example.near" autocomplete="off" autocapitalize="none" spellcheck="false" minlength="2" maxlength="64" required aria-describedby="lookup-info">
+<p id="lookup-info" class="muted">Only this public account ID is sent to the NEAR mainnet RPC. Passkeys are used on the next page.</p>
+<label for="domain-select" class="label">ORIGINAL PASSKEY WEBSITE</label>
+<select id="domain-select" aria-describedby="domain-help"></select>
+<p id="domain-help" class="muted">Choose the website shown on your existing passkey in your passkey manager. The NEAR account name does not determine this.</p>
+<button id="lookup" type="submit">Find public access keys</button>
+</form>
+<p id="setup-status" role="status" aria-live="polite">Internet access is needed for this public lookup.</p>
+<section id="result" hidden aria-label="Account lookup result">
+<p class="label">ACCOUNT</p><h2 id="selected-account"></h2>
+<label for="key-select" class="label">FULL ACCESS PUBLIC KEY</label>
+<select id="key-select" aria-describedby="key-help"></select>
+<p id="key-help" class="muted">If the account has several FullAccess keys, choose one to compare against. You can try another in a new session.</p>
+<p id="selected-snapshot" class="muted"></p>
+<button id="continue" type="button">Prepare recovery</button>
+</section>
+<p class="footnote">For historical Bitte and Mintbase passkeys. Recovery runs locally on macOS with Chrome. This community tool is not affiliated with Bitte or Mintbase. Use it for a wallet you own or are authorized to recover.</p>
+</main></body></html>

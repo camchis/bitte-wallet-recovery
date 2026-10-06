@@ -1,0 +1,66 @@
+{
+  "name": "bitte-local-recovery",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "setup": "node setup-local.mjs",
+    "start": "node start-local.mjs",
+    "check-package": "node scripts/check-package.mjs",
+    "build:macos": "node scripts/build-macos.mjs",
+    "check-public": "node scripts/check-public.mjs",
+    "release:macos": "node scripts/build-macos.mjs --release"
+  },
+  "dependencies": {
+    "@noble/curves": "1.9.7",
+    "@noble/hashes": "1.8.0",
+    "@scure/base": "1.2.6"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  },
+  "version": "0.5.0",
+  "description": "Local recovery tool for historical Bitte and Mintbase NEAR passkey wallets",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "account.mjs",
+    "build.mjs",
+    "server.mjs",
+    "setup-server.mjs",
+    "setup-local.mjs",
+    "start-local.mjs",
+    "launch-chrome.mjs",
+    "src/app.js",
+    "src/setup.js",
+    "src/recover.js",
+    "public",
+    "test",
+    "docs",
+    "scripts/check-package.mjs",
+    "Start Recovery.command",
+    "README.md",
+    "SECURITY.md",
+    "LICENSE",
+    "package-lock.json",
+    ".gitignore",
+    "src/domains.js",
+    "browser-config.mjs",
+    "desktop-session.mjs",
+    "macos",
+    "scripts/build-macos.mjs",
+    "src/providers.js",
+    "browser-process.mjs",
+    "browser-guardian.mjs",
+    "scripts/package-docs.mjs",
+    "AGENTS.md",
+    "RECOVERY_NOTES.md",
+    "CONTRIBUTING.md",
+    "scripts/public-files.mjs",
+    "scripts/check-public.mjs",
+    ".github"
+  ]
+}

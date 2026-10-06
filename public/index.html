@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bitte · Local wallet recovery</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/style.css">
+<script src="/target.js"></script>
+<script type="module" src="/app.js"></script>
+</head>
+<body>
+<main>
+<p class="eyebrow">LOCAL RECOVERY · NEAR MAINNET</p>
+<h1>Recover your existing wallet key.</h1>
+<p class="intro">Use your existing passkey to reconstruct the historical NEAR signing key on this Mac.</p>
+<section aria-label="Target account">
+<p class="label">ACCOUNT</p><h2 id="account">Loading account…</h2>
+<p class="label">FULL ACCESS PUBLIC KEY</p><code id="public-key"></code>
+<p class="label site-label">ORIGINAL PASSKEY WEBSITE</p><code id="passkey-site"></code>
+<p class="label site-label">PASSKEY PROVIDER</p><span id="provider"></span>
+<p class="muted" id="snapshot"></p>
+</section>
+<p id="environment" class="environment">Checking local environment…</p>
+<label class="check"><input id="offline" type="checkbox"> <span id="acknowledgement">I have disconnected internet access, and will save any recovered key outside cloud-synced folders.</span></label>
+<button id="recover" disabled>Use existing passkey</button>
+<p id="status" role="status" aria-live="polite">Ready for local authentication. Nothing has been recovered.</p>
+<div class="actions"><button id="download" class="secondary" disabled>Save recovered key</button><button id="clear" class="secondary">Release recovered bytes</button></div>
+<p class="footnote" id="finish-instructions">The page compares against the public snapshot shown above. It does not check live chain state. Saving creates an unencrypted NEAR credential file. Close this browser window before reconnecting to the internet.</p>
+</main>
+</body>
+</html>

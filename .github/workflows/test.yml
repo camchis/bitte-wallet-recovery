@@ -1,0 +1,29 @@
+name: Validate recovery tool
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm audit --audit-level=low
+      - run: npm run build
+      - run: npm run setup
+      - run: npm test
+      - run: npm run check-public
+      - run: node scripts/check-package.mjs --archive
+      - name: Build universal macOS preview (never publishes)
+        if: runner.os == 'macOS'
+        run: npm run build:macos

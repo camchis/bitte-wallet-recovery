@@ -1,0 +1,34 @@
+# Dependencies and generated build/release files
+node_modules/
+dist/
+.local/
+coverage/
+*.app/
+*.dmg
+*.zip
+*.tgz
+*.tar.gz
+
+# Local credentials, profiles and wallet exports
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.mobileprovision
+*recovered*.json
+*recovered*.txt
+src/target.json
+chrome-profile/
+profiles/
+research/
+REVIEW.md
+
+# Editor and OS metadata
+.DS_Store
+._*
+.vscode/
+.idea/
+*.log

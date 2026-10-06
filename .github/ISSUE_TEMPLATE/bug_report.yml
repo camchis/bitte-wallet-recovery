@@ -1,0 +1,28 @@
+name: Recovery problem
+description: Report a problem without sharing wallet or passkey material.
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "Never upload recovered keys, assertions, passkey data, PINs, vault passwords, browser profiles, or screenshots containing secrets. For security vulnerabilities, follow SECURITY.md."
+  - type: input
+    id: app_version
+    attributes:
+      label: App version
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: macOS and Chrome versions; Apple Silicon or Intel
+  - type: input
+    id: provider
+    attributes:
+      label: Passkey provider and version
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the plain error text and steps, without account secrets or authentication traffic.
+    validations:
+      required: true
