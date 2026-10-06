@@ -1,4 +1,4 @@
-# Bitte Wallet Recovery
+# Bitte/Mintbase Wallet Recovery
 
 Recover the signing key for a historical **Bitte** or **Mintbase** NEAR passkey wallet using the passkey you already have. You do not need the old wallet website or its former backend.
 
