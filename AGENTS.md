@@ -11,4 +11,4 @@ This tool reconstructs historical Bitte/Mintbase NEAR wallet keys on the user's 
 - Preserve existing browser state. Tests use synthetic credentials, temporary profiles and mock processes only.
 - Keep source provenance in RECOVERY_NOTES.md and docs/IMPLEMENTATION.md. Keep personal research outside this repository.
 - Use `npm ci --ignore-scripts --no-audit --no-fund`, `npm run build`, `npm run setup`, `npm test` and `npm run check-public` for validation. Build the macOS app on macOS using `npm run build:macos`.
-- Public app releases require Developer ID signing/notarization and recorded device/provider validation. Do not label unsigned or unvalidated builds as production releases.
+- Stable public app releases require Developer ID signing/notarization and recorded device/provider validation. Explicitly labelled experimental prereleases may include an ad-hoc signed, unnotarized macOS app when the owner authorizes it. Include the source commit, checksum, validation limitations and Apple's per-app opening instructions; never recommend globally disabling Gatekeeper or removing quarantine. Do not label unsigned or unvalidated builds as production releases.

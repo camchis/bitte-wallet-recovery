@@ -17,7 +17,18 @@ A newly created passkey or an ordinary password cannot replace the original wall
 
 ## Download the app
 
-Download the app from [Releases](https://github.com/camchis/bitte-wallet-recovery/releases) or build from source.
+Download the ZIP ending in **`-macos-universal-preview.zip`** from [Releases](https://github.com/camchis/bitte-wallet-recovery/releases). **Code → Download ZIP** and **Source code (zip)** contain source code, not the ready-to-open app.
+
+This is an **experimental preview**, ad-hoc signed and not notarized by Apple. macOS may block the first launch. Real provider/device compatibility and Intel execution still need validation. The app includes Node, so you do not need Terminal or a separate Node installation to use it.
+
+1. Extract the app ZIP and move **Bitte Local Recovery.app** to Applications.
+2. Double-click it. If macOS says the developer cannot be verified or Apple cannot check it, close that alert.
+3. If you trust this release, open **System Settings → Privacy & Security**, scroll to the blocked-app message, choose **Open Anyway**, and confirm **Open**. This creates an exception for this app. See [Apple's opening instructions](https://support.apple.com/en-gb/102445).
+4. Choose your passkey provider and follow the recovery steps below.
+
+If macOS says the app is damaged or will harm your computer, stop rather than overriding that alert. Keep Gatekeeper enabled and leave Chrome certificate warnings intact. A SHA-256 checksum and file manifest accompany the download; they help detect changed files but are not an Apple signature or security audit.
+
+You can also build and run from source:
 
 ### Build from source on macOS
 
@@ -65,7 +76,9 @@ These are integration options, not a promise that every provider/version works. 
 
 **No key matches:** check the chosen FullAccess key and account. A different credential, unsupported signature type, or historical wallet version can also cause a mismatch. The app does not save any candidate key on failure.
 
-**The app will not open or Chrome shows a certificate warning:** stop. Obtain a verified release; do not bypass certificate warnings or install a certificate into Apple Keychain.
+**macOS blocks the preview app:** follow the per-app opening instructions above only if you trust this release. A damaged-app or malware alert needs investigation.
+
+**Chrome shows a certificate warning:** stop. Do not bypass certificate warnings or install a certificate into Apple Keychain.
 
 **A recovery port is busy:** close the other recovery session, then retry as instructed. After a crash, check that all dedicated recovery windows have closed before starting again.
 

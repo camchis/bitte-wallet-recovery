@@ -43,10 +43,10 @@ npm run build:macos
 node scripts/check-package.mjs --archive
 ```
 
-The macOS command creates a clearly named preview ZIP, checksum and manifest under ignored `.local/`. It is ad-hoc signed for local testing, not a public release. The source archive includes only allowlisted public files and can be extracted as a clean repository without local state.
+The macOS command creates a clearly named preview ZIP, checksum and manifest under ignored `.local/`. It is ad-hoc signed and unnotarized. Owner-authorized experimental prereleases may distribute it with its checksum, source commit, validation limitations and Apple's per-app opening instructions. It must not be presented as a stable release. The source archive includes only allowlisted public files and can be extracted as a clean repository without local state.
 
 Before pushing, run `npm run check-public`. It checks both tracked and untracked files that Git would include, rejects unknown/secret-bearing files, and checks documentation links. This is an additional safeguard, not a substitute for reviewing the file list. Do not force-add ignored files. No commit hook is installed automatically.
 
-CI runs clean installation, builds, tests, a dependency audit, public-file checks, source packaging and a universal macOS preview build. Public app releases require Developer ID signing, notarization, and recorded device/provider validation. The release build uses an existing `MACOS_SIGN_IDENTITY` and `MACOS_NOTARY_PROFILE`; without them it stops rather than substituting a preview signature.
+CI runs clean installation, builds, tests, a dependency audit, public-file checks, source packaging and a universal macOS preview build. Stable public app releases require Developer ID signing, notarization, and recorded device/provider validation. The release build uses an existing `MACOS_SIGN_IDENTITY` and `MACOS_NOTARY_PROFILE`; without them it stops rather than substituting a preview signature. Build experimental artifacts from a clean copy of the release commit and verify their checksum and manifest before upload. Never recommend globally disabling Gatekeeper or removing quarantine.
 
 Keep PR descriptions focused on the user-visible behavior and relevant validation. Do not put recovery material or sensitive vulnerability details in public issues or PRs.
