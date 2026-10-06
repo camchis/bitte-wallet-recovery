@@ -2,7 +2,7 @@
 
 Recover the private key for a historical **Bitte** or **Mintbase** NEAR passkey wallet using the passkey you already have. You do not need the old wallet website or its former backend which have both been shutdown suddenly, without any migration process.
 
-**Use at your own risk.** This app is not affiliated with Bitte, Mintbase, NEAR, or any password manager. Password-based wallets and Windows/Safari launchers are not supported. There is no independent security audit. See [security and privacy](SECURITY.md) and [historical implementation evidence](docs/IMPLEMENTATION.md).
+**Use at your own risk.** This app is not affiliated with Bitte, Mintbase, NEAR, or any password manager. Password-based wallets and Windows/Safari launchers are not supported. There is no independent security audit. See [privacy and limits](#privacy-and-limits) and [historical implementation evidence](docs/IMPLEMENTATION.md).
 
 The app runs on your Mac. It never uploads the recovered NEAR private key and does not move funds, add keys, or modify your passkey.
 
@@ -17,7 +17,7 @@ A newly created passkey or an ordinary password cannot replace the original wall
 
 ## Download the app
 
-Download the app from [Releases](https://github.com/Near-Wallet-Recovery/bitte-wallet-recovery/releases) or build from source.
+Download the app from [Releases](https://github.com/camchis/bitte-wallet-recovery/releases) or build from source.
 
 ### Build from source on macOS
 
@@ -57,7 +57,7 @@ The app preserves your passkeys and browser profiles. It only offers a download 
 
 Setup options include **Apple Passwords, Google Password Manager, 1Password, Bitwarden, Proton Pass, Dashlane, other compatible managers, hardware security keys, and a passkey on your phone**.
 
-These are integration options, not a promise that every provider/version works. See the [compatibility table](docs/PROVIDERS.md) for what has been tested. Internet access for a provider does not cause this app to upload your recovered key.
+These are integration options, not a promise that every provider/version works. Provider setup has synthetic test coverage; genuine provider/device compatibility still needs validation. Internet access for a provider does not cause this app to upload your recovered key.
 
 ## If recovery does not work
 

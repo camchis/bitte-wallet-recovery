@@ -43,7 +43,6 @@
     "scripts/check-package.mjs",
     "Start Recovery.command",
     "README.md",
-    "SECURITY.md",
     "LICENSE",
     "package-lock.json",
     ".gitignore",

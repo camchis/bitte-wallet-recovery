@@ -1,7 +1,7 @@
 import { copyFile, mkdir, readFile, stat } from 'node:fs/promises';
 import { dirname, resolve, relative, isAbsolute, sep } from 'node:path';
 
-export const DOCUMENTATION_FILES = Object.freeze(['README.md', 'SECURITY.md', 'docs/MACOS.md', 'docs/PROVIDERS.md', 'docs/IMPLEMENTATION.md', 'CONTRIBUTING.md', 'RECOVERY_NOTES.md', 'docs/RELEASING.md']);
+export const DOCUMENTATION_FILES = Object.freeze(['README.md', 'docs/IMPLEMENTATION.md', 'CONTRIBUTING.md', 'RECOVERY_NOTES.md']);
 
 export async function checkDocumentationLinks(root) {
   for (const file of DOCUMENTATION_FILES) {

@@ -32,7 +32,7 @@ Passkeys remain scoped to their original RP. `wallet.bitte.ai` and `wallet.mintb
 
 The NEAR derivation/export runs on the user's device. Standard provider authentication may use provider services. Chrome's Google Password Manager enclave path performs a network transaction for the assertion itself: [`EnclaveAuthenticator::DispatchGetAssertion`](https://chromium.googlesource.com/chromium/src/+/main/device/fido/enclave/enclave_authenticator.cc) calls [`Transact`](https://chromium.googlesource.com/chromium/src/+/main/device/fido/enclave/transact.cc), which creates an enclave WebSocket client. Initial synchronization alone does not establish offline GPM authentication.
 
-Extension-based managers use their standard WebAuthn integration. The recovery page retains `connect-src 'none'`, self-only scripts, no upload endpoint and explicit local download in all modes. This does not isolate it from a trusted extension or the original provider. A service knowing the historical credential public point can derive the same NEAR key. See docs/PROVIDERS.md for integration paths and validation status.
+Extension-based managers use their standard WebAuthn integration. The recovery page retains `connect-src 'none'`, self-only scripts, no upload endpoint and explicit local download in all modes. This does not isolate it from a trusted extension or the original provider. A service knowing the historical credential public point can derive the same NEAR key. See README.md for provider options and validation limitations.
 
 ## Validation and limitations
 

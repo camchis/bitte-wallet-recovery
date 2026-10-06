@@ -1,6 +1,6 @@
 # Contributing
 
-Use synthetic credentials and authorized test wallets. Never add real wallet material, browser profiles, provider sessions, TLS private keys or personal recovery notes to Git. Follow AGENTS.md and SECURITY.md.
+Use synthetic credentials and authorized test wallets. Never add real wallet material, browser profiles, provider sessions, TLS private keys or personal recovery notes to Git. Follow AGENTS.md and the privacy guidance in README.md.
 
 ## Develop from the repository root
 
@@ -47,6 +47,6 @@ The macOS command creates a clearly named preview ZIP, checksum and manifest und
 
 Before pushing, run `npm run check-public`. It checks both tracked and untracked files that Git would include, rejects unknown/secret-bearing files, and checks documentation links. This is an additional safeguard, not a substitute for reviewing the file list. Do not force-add ignored files. No commit hook is installed automatically.
 
-CI runs clean installation, builds, tests, a dependency audit, public-file checks, source packaging and a universal macOS preview build. See [release operations](docs/RELEASING.md) for signed public app requirements.
+CI runs clean installation, builds, tests, a dependency audit, public-file checks, source packaging and a universal macOS preview build. Public app releases require Developer ID signing, notarization, and recorded device/provider validation. The release build uses an existing `MACOS_SIGN_IDENTITY` and `MACOS_NOTARY_PROFILE`; without them it stops rather than substituting a preview signature.
 
-Keep PR descriptions focused on the user-visible behavior and relevant validation. Report vulnerabilities through a private channel described in SECURITY.md; do not put recovery material in issues or PRs.
+Keep PR descriptions focused on the user-visible behavior and relevant validation. Do not put recovery material or sensitive vulnerability details in public issues or PRs.
